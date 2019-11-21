@@ -17,20 +17,23 @@ class ProductDetails extends Component {
         }
     }
     componentWillMount() {
-        if(Object.keys(this.props.dataProduct).length> 0) {
-            this.setState({data:this.props.dataProduct})
-           return;
-        }
         let url = "https://louis.pwa-commerce.com/simiconnector/rest/v2/products/"
         url = url + this.props.navigation.state.params.entity_id
         connection.requestData(url, this)
     }
     setData(data) {
+        if(data == 0){
+            if(Object.keys(this.props.dataProduct).length> 0) {
+                this.setState({data:this.props.dataProduct})
+               return;
+            }
+            return
+        }
         this.setState({ data: data })
         this.props.storeData("DATA_PRODUCT", data)
     }
     render() {
-        console.log(this.props.dataProduct)
+        // console.log(this.props.dataProduct)
         if (this.state.data === null) {
             return (
                 <View style={{ flex: 1 }}>
@@ -48,9 +51,9 @@ class ProductDetails extends Component {
                     <ScrollView style={{ marginBottom: 70, marginLeft: 3 }}>
                         <ImageProducts data={this.state.data} />
                         <NameProduct data={this.state.data} />
-                        <Description />
-                        <Techspecs />
-                        <Review />
+                        <Description data={this.state.data}/>
+                        <Techspecs data={this.state.data}/>
+                        <Review data={this.state.data}/>
                     </ScrollView>
                 </View>
             </View>

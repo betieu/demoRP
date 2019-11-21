@@ -1,4 +1,3 @@
-
 class Connection{
     requestData = (url,obj) => {
       console.log(url)
@@ -8,7 +7,7 @@ class Connection{
             obj.setData(dataResponse)
         })
         .catch(err => {
-          console.log('Error :-S', err)
+          obj.setData(0)
         });
     }
 }

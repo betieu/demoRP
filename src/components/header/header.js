@@ -14,13 +14,13 @@ export default class Header extends Component {
                     >
                     <View >
                         <Image
-                            source={require('../../../media/arrow_back.png')}
+                            source={require('../../../icon/arrow_back.png')}
                             style={{ width: 20, height: 20 }}
                         />
                     </View>
                 </TouchableOpacity>}
                 <Image
-                    source={require('../../../media/logo.png')}
+                    source={require('../../../icon/logo.png')}
                     style={{ width: 190, height: 50, marginLeft: -40, marginTop: 10 }}
                 />
             </View>
